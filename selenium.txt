@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 import os
 #import pickle
 #from telnetlib import EC
@@ -24,14 +24,14 @@ import getpass
 #import requests
 #import re
 headers = {
-    'authority': 'mms.efarda.ir',
-    "cookie": "cookiesession1=678ADB0291F0C1FCFEC063FD1EC74CF3; __RequestVerificationToken=OlkvxrxZTbrMT4o2YDfUJaubfntLFRdjRuZAf3TEWG25pj-DRRe5JKPmXC9nAy51czMaTSX2zw_y9JHWfhIRZvWNDYj6huMcZPMrMwnGBlw1; EFMMS=th4w51w450i0zccyhwmw252h; .ASPXAUTH=791C50F1227EA62F774E3087C676F804891493FA7D692D6FC2045D73ECBCBC606C83D8CE2D2697706C04EE8AC2262A2CBF8D10616855D7D05703C2F2FF53CBF5427D36DDF381B731F71E05FA77380879C9E5DD35D624E3287CB5EAD2539F898F9BF198688E68ABFEBB148D936633A78256A4F0FE2C407A2BF8C4F884976902F4",
-    "origin": "https://mms.efarda.ir",
-    "referer": "https://mms.efarda.ir/Shop/Create",
+    'authority': '#your_domain',
+    "cookie": "",
+    "origin": "#your_domain",
+    "referer": "",
     "x-requested-with": "XMLHttpRequest",
 }
 
-response = requests.post('https://mms.efarda.ir/Shop/GenerateContractNo', headers=headers)
+response = requests.post('https://#your_domain/Shop/GenerateContractNo', headers=headers)
 reponse_co = str(response.content)
 reponse_co_num = re.findall('[0-9]+', reponse_co)
 class MmsImport(unittest.TestCase):
@@ -63,7 +63,7 @@ class MmsImport(unittest.TestCase):
         requests.post()
     def login_mms(self):
         driver = self.driver
-        driver.get("https://mms.efarda.ir")
+        driver.get("https://#your_domain")
         driver.find_element_by_id("UserName").clear()
         # driver.find_element_by_id("UserName").send_keys("testbrocker")
         driver.find_element_by_id("UserName").send_keys("usertest")
@@ -73,7 +73,7 @@ class MmsImport(unittest.TestCase):
         driver.find_element_by_id("m_login_signin_submit").click()
     def test_mms_import(self):
         driver = self.driver
-        driver.get("https://mms.efarda.ir")
+        driver.get("https://#your_domain")
         driver.find_element_by_id("UserName").clear()
         #driver.find_element_by_id("UserName").send_keys("testbrocker")
         driver.find_element_by_id("UserName").send_keys("usertest")
@@ -81,9 +81,9 @@ class MmsImport(unittest.TestCase):
         #driver.find_element_by_id("Password").send_keys("testbrocker1234")
         driver.find_element_by_id("Password").send_keys("usertest1234")
         driver.find_element_by_id("m_login_signin_submit").click()
-        driver.get("https://mms.efarda.ir/")
+        driver.get("https://#your_domain/")
         # driver.find_element_by_link_text(u"\ثبت پیش نویس").click()
-        driver.get("https://mms.efarda.ir/Shop/Create")
+        driver.get("https://#your_domain/Shop/Create")
         # driver.find_element_by_link_text(u"ثبت پیش نویس").click()
         # driver.find_element_by_link_text("https://mms.efarda.ir/Shop/Create")
         # driver.find_element_by_xpath(u"//*[text() = \"ثبت پیش نویس\"]")
