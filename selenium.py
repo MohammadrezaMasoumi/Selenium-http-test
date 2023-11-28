@@ -1,9 +1,6 @@
 
 import os
-#import pickle
-#from telnetlib import EC
 import pytest
-#import win32com
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -16,13 +13,7 @@ import unittest, time, re
 import HtmlTestRunner
 import requests
 from selenium.webdriver.support.wait import WebDriverWait
-#from unittest2 import main
-# from .models import Status
-# from status.models import Status
 import getpass
-#from io import StringIO
-#import requests
-#import re
 headers = {
     'authority': '#your_domain',
     "cookie": "",
@@ -61,7 +52,7 @@ class MmsImport(unittest.TestCase):
         self.accept_next_alert = True
     def shenase_id(self):
         requests.post()
-    def login_mms(self):
+    def login_(self):
         driver = self.driver
         driver.get("https://#your_domain")
         driver.find_element_by_id("UserName").clear()
@@ -71,7 +62,7 @@ class MmsImport(unittest.TestCase):
         # driver.find_element_by_id("Password").send_keys("testbrocker1234")
         driver.find_element_by_id("Password").send_keys("usertest1234")
         driver.find_element_by_id("m_login_signin_submit").click()
-    def test_mms_import(self):
+    def test__import(self):
         driver = self.driver
         driver.get("https://#your_domain")
         driver.find_element_by_id("UserName").clear()
@@ -85,7 +76,7 @@ class MmsImport(unittest.TestCase):
         # driver.find_element_by_link_text(u"\ثبت پیش نویس").click()
         driver.get("https://#your_domain/Shop/Create")
         # driver.find_element_by_link_text(u"ثبت پیش نویس").click()
-        # driver.find_element_by_link_text("https://mms.efarda.ir/Shop/Create")
+        # driver.find_element_by_link_text("https://#your_domain/Shop/Create")
         # driver.find_element_by_xpath(u"//*[text() = \"ثبت پیش نویس\"]")
         driver.find_element_by_id("EnName").click()
         driver.find_element_by_id("EnName").clear()
@@ -180,19 +171,7 @@ class MmsImport(unittest.TestCase):
         Select(driver.find_element_by_id("DeviceUsageTypeId")).select_by_visible_text(u"رومیزی")
         time.sleep(3)
         #driver.find_element_by_id("#fupCDFFFile").send_keys(os.getcwd() + "C:/fakepath/testmms.jpg")
-        #driver.find_element_by_id("fupCDFFFile").send_keys("C:/Users/a.amoozandeh/PycharmProjects/pythonProject/file/testmms.jpg")
         # upload_file = driver.find_element_by_id("fupCDFFFile")
-        driver.find_element_by_id("fupCDFFFile").send_keys("C:/Users/a.amoozandeh/PycharmProjects/pythonProject/file/testmms.jpeg")
-        driver.find_element_by_id("fupCDBFFile").send_keys("C:/Users/a.amoozandeh/PycharmProjects/pythonProject/file/testmms.jpeg")
-        driver.find_element_by_id("fupCDTFFile").send_keys("C:/Users/a.amoozandeh/PycharmProjects/pythonProject/file/testmms.jpeg")
-        driver.find_element_by_id("fupBLFFile").send_keys("C:/Users/a.amoozandeh/PycharmProjects/pythonProject/file/testmms.jpeg")
-        driver.find_element_by_id("fupODFFile").send_keys("C:/Users/a.amoozandeh/PycharmProjects/pythonProject/file/testmms.jpeg")
-        driver.find_element_by_id("fupNICFFFile").send_keys("C:/Users/a.amoozandeh/PycharmProjects/pythonProject/file/testmms.jpeg")
-        driver.find_element_by_id("fupNICBFFile").send_keys("C:/Users/a.amoozandeh/PycharmProjects/pythonProject/file/testmms.jpeg")
-        driver.find_element_by_id("fupIDFFile").send_keys("C:/Users/a.amoozandeh/PycharmProjects/pythonProject/file/testmms.jpeg")
-        driver.find_element_by_id("fupAIDFFile").send_keys("C:/Users/a.amoozandeh/PycharmProjects/pythonProject/file/testmms.jpeg")
-        driver.find_element_by_id("fupOtherFile").send_keys("C:/Users/a.amoozandeh/PycharmProjects/pythonProject/file/testmms.jpeg")
-        driver.find_element_by_xpath("//button[@id='btnUploadAllFiles']/span").click()
         time.sleep(25)
         driver.find_element_by_xpath("//button[@id='next']/span/span").click()
         time.sleep(20)
@@ -201,5 +180,5 @@ class MmsImport(unittest.TestCase):
         time.sleep(5)
 if __name__ == '__main__':
     unittest.main(
-        testRunner=HtmlTestRunner.HTMLTestRunner(output='C:/Users/a.amoozandeh/PycharmProjects/pythonProject/reports'))
+        testRunner=HtmlTestRunner.HTMLTestRunner(output='C:/Users/mohammadreza/PycharmProjects/pythonProject/reports'))
     print("test run and its ok")
